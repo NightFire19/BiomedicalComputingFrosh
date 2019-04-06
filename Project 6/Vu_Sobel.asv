@@ -1,0 +1,26 @@
+function [outputImage] = Vu_Sobel(input)
+%Vu_Sobel Applies the Sobel Edge Filter to the image.
+%
+%Function: Vu_Sobel
+%
+%  Purpose: The Sobel Edge Filterm or Sobel Filter, where the algorithim
+%  emphasizes edges.
+%Date        Programmer        Description of change
+%   ===================================================
+%   10/20/09    Olga A. Imas      Original code
+%   11/01/10    Olga A. Imas      Converted to stand alone function
+%
+% Input variables
+%
+%  input          ----- MxN image dataset
+%  
+% Output variables
+%
+%  outputImage      ----- MxN image dataset with rescaled intensity values
+%
+K1=[-1 0 1;-2 0 2;-1 0 1;];
+K2=K1';
+output=sqrt((conv2(double(input),double(K1))).^2+...
+    (conv2(double(input),double(K2)).^2));
+end
+
